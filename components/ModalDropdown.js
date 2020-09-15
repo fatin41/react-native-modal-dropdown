@@ -61,6 +61,7 @@ export default class ModalDropdown extends Component {
     adjustFrame: PropTypes.func,
     renderRow: PropTypes.func,
     renderSeparator: PropTypes.func,
+    renderHeader: PropTypes.func,
     renderButtonText: PropTypes.func,
     onDropdownWillShow: PropTypes.func,
     onDropdownWillHide: PropTypes.func,
@@ -309,6 +310,7 @@ export default class ModalDropdown extends Component {
       showsVerticalScrollIndicator,
       keyboardShouldPersistTaps,
       options,
+      renderHeader,
     } = this.props;
 
     return (
@@ -318,6 +320,7 @@ export default class ModalDropdown extends Component {
         style={styles.list}
         keyExtractor={(item, i) => (`key-${i}`)}
         renderItem={this._renderItem}
+        ListHeaderComponent= {renderHeader}
         ItemSeparatorComponent={renderSeparator || this._renderSeparator}
         automaticallyAdjustContentInsets={false}
         showsVerticalScrollIndicator={showsVerticalScrollIndicator}
